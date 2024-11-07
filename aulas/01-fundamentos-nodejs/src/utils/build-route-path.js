@@ -1,5 +1,5 @@
 /** '/users/:id' */
-export function buildRotePath(path) {
+export function buildRoutePath(path) {
   const routeParametersRegex = /:([a-zA-Z]+)/g
   const pathWithParams = path.replaceAll(
     routeParametersRegex,
