@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { Database } from './database.js'
-import { buildRotePath } from './utils/build-rote-path.js'
+import { buildRotePath } from './utils/build-route-path.js'
 
 const database = new Database()
 
@@ -32,7 +32,7 @@ export const routes = [
   },
   {
     method: 'DELETE',
-    path: buildRotePath('/users/:id'),
+    path: buildRotePath('/users/:id/groups/:groupId'),
     handler: (req, res) => {
       return res.end()
     },
