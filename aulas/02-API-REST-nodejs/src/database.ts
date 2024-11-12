@@ -1,9 +1,13 @@
+import 'dotenv/config'
 import { knex as setupKnex, Knex } from 'knex'
+
+if (!process.env.DATABASE_URL)
+  throw new Error('Environment variable is empty DATABASE_URL')
 
 export const config: Knex.Config = {
   client: 'sqlite',
   connection: {
-    filename: './db/db.sqlite3',
+    filename: process.env.DATABASE_URL,
   },
   useNullAsDefault: true,
   migrations: {
