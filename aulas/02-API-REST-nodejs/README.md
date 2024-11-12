@@ -14,3 +14,13 @@
 # RNF: Recursos não funcionais
 
 - [ ] Em planejamento ...
+
+---
+
+SETUP nodejs@18.13.0
+
+```
+winget install Schniz.fnm
+fnm env --use-on-cd | Out-String | Invoke-Expression
+fnm use --install-if-missing 18.13.0
+```
