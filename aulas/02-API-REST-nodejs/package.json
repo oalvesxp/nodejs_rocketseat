@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
     "knex": "node --no-warnings --loader tsx ./node_modules/knex/bin/cli.js",
     "test": "vitest"
   },
@@ -15,6 +16,7 @@
     "@types/node": "^22.9.0",
     "@types/supertest": "^6.0.2",
     "supertest": "^7.0.0",
+    "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "vitest": "^2.1.5"
