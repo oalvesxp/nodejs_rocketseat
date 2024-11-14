@@ -4,7 +4,7 @@
   "description": "API REST NodeJS",
   "main": "index.js",
   "engines": {
-    "node": ">=18.13.0"
+    "node": "18.13.0"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
