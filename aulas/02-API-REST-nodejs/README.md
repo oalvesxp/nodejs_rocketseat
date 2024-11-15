@@ -8,12 +8,8 @@
 # RN: Regras de negócio
 
 - [x] A transação pode ser do tipo crédito (somará ao valor total), ou débito que irá subtrair.
-- [ ] Deve ser possível identificarmos o usuário entre as requisições.
-- [ ] O usuário só pode visualizar transações no qual ele criou.
-
-# RNF: Recursos não funcionais
-
-- [ ] Em planejamento ...
+- [x] Deve ser possível identificarmos o usuário entre as requisições.
+- [x] O usuário só pode visualizar transações no qual ele criou.
 
 ---
 
