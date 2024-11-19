@@ -2,6 +2,23 @@
 
 GymPass style app.
 
+## Setup 
+
+Instalando as dependências
+```sh
+npm install
+```
+
+Iniciando o container do banco de dados PostgreSQL
+```sh
+docker compose up -d
+```
+
+Criando as tabelas na base de dados
+```sh
+npx prisma migrate dev
+```
+
 ## RFs (Requisitos Funcionais)
 
 - [ ] Deve ser possível se cadastrar.
