@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "GymPass style app.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui":"vitest --ui",
+    "test:ui": "vitest --ui",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build"
   },
