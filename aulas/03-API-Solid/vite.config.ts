@@ -14,6 +14,7 @@ export default defineConfig({
         'src/lib/**',
         'src/repositories/prisma/**',
         'src/repositories/**.ts',
+        'src/use-cases/factories',
       ],
     },
   },
