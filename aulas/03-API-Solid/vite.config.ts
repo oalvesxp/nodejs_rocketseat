@@ -7,6 +7,7 @@ export default defineConfig({
     coverage: {
       include: ['src/**'],
       exclude: [
+        'src/@types/**',
         'src/app.ts',
         'src/server.ts',
         'src/env/**',
