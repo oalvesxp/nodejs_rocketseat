@@ -17,5 +17,7 @@ export default defineConfig({
         'src/use-cases/factories',
       ],
     },
+    globals: true,
+    environment: 'node',
   },
 })
