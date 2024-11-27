@@ -33,8 +33,8 @@ describe('[e2e] Nearby Gyms Controller', () => {
         title: 'TypeScript Gym',
         description: 'Some description.',
         phone: '11 9 9999-9999',
-        latitude: -22.8712641,
-        longitude: -46.7907834,
+        latitude: -18.551614,
+        longitude: -54.9547918,
       })
 
     const response = await request(app.server)
