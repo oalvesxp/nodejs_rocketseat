@@ -7,10 +7,10 @@ export async function create(req: FastifyRequest, rep: FastifyReply) {
     title: z.string(),
     description: z.string().nullable(),
     phone: z.string().nullable(),
-    latitude: z.number().refine((value) => {
+    latitude: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 90
     }),
-    longitude: z.number().refine((value) => {
+    longitude: z.coerce.number().refine((value) => {
       return Math.abs(value) <= 180
     }),
   })
@@ -28,5 +28,5 @@ export async function create(req: FastifyRequest, rep: FastifyReply) {
     longitude,
   })
 
-  return rep.status(200).send()
+  return rep.status(201).send()
 }
