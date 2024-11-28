@@ -4,7 +4,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 export async function metrics(req: FastifyRequest, rep: FastifyReply) {
   const getUseMetricsUseCase = makeGetUserMetricsUseCase()
 
-  const checkInsCount = await getUseMetricsUseCase.execute({
+  const { checkInsCount } = await getUseMetricsUseCase.execute({
     userId: req.user.sub,
   })
 
