@@ -18,3 +18,8 @@ Desenvolvendo aplicações completas e escaláveis com Node.js e diversos Framew
 
    - **Descrição:** Aplicação de uma API REST, aplicando os conceitos de SOLID e Design Patterns.
    - **Desafio:** [Find A Friend](https://github.com/oalvesxp/nodejs_ingite_findAFriend)
+
+4. DDD no Node.js
+
+   - **Descrição:** Design de Software e Domain-Driven Design (DDD).
+   - **Desafio:** [Find A Friend]()
