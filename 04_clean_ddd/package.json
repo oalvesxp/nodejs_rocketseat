@@ -1,19 +1,23 @@
 {
   "name": "clean_ddd",
+  "author": "Osvaldo Alves",
+  "description": "Design de Software e Domain-Driven Design (DDD)",
   "version": "1.0.0",
+  "engines": {
+    "node": "22.12.0"
+  },
   "main": "index.js",
   "scripts": {
     "test:unit": "vitest run",
     "test:unit:watch": "vitest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "Design de Software e Domain-Driven Design (DDD)",
+  "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@types/node": "^22.10.5",
     "typescript": "^5.7.2",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8"
   },
   "dependencies": {
