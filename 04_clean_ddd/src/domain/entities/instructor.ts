@@ -5,6 +5,7 @@ interface InstructorProps {
 }
 
 export class Instructor extends Entity<InstructorProps> {
+
   constructor(props: InstructorProps, id?: string) {
     super(props, id)
   }
