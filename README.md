@@ -22,4 +22,4 @@ Desenvolvendo aplicações completas e escaláveis com Node.js e diversos Framew
 4. DDD no Node.js
 
    - **Descrição:** Design de Software e Domain-Driven Design (DDD).
-   - **Desafio:** [Find A Friend]()
+   - **Desafio:** [undefined]()
