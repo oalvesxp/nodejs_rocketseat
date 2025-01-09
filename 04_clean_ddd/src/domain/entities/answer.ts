@@ -32,10 +32,7 @@ export class Answer extends Entity<AnswerProps> {
   }
 
   get except() {
-    return this.content
-      .substring(0, 120)
-      .trimEnd()
-      .concat('...')
+    return this.content.substring(0, 120).trimEnd().concat('...')
   }
 
   private touch() {
@@ -49,12 +46,15 @@ export class Answer extends Entity<AnswerProps> {
 
   static create(
     props: Optional<AnswerProps, 'createdAt'>,
-    id?: UniqueEntityID
+    id?: UniqueEntityID,
   ) {
-    const answer = new Answer({
-      ...props,
-      createdAt: new Date()
-    }, id)
+    const answer = new Answer(
+      {
+        ...props,
+        createdAt: new Date(),
+      },
+      id,
+    )
 
     return answer
   }

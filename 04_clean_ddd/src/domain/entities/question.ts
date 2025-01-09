@@ -27,6 +27,10 @@ export class Question extends Entity<QuestionProps> {
     return this.props.title
   }
 
+  get content() {
+    return this.props.content
+  }
+
   get slug() {
     return this.props.slug
   }
@@ -44,10 +48,7 @@ export class Question extends Entity<QuestionProps> {
   }
 
   get except() {
-    return this.content
-      .substring(0, 120)
-      .trimEnd()
-      .concat('...')
+    return this.content.substring(0, 120).trimEnd().concat('...')
   }
 
   private touch() {
@@ -72,13 +73,16 @@ export class Question extends Entity<QuestionProps> {
 
   static create(
     props: Optional<QuestionProps, 'createdAt' | 'slug'>,
-    id?: UniqueEntityID
+    id?: UniqueEntityID,
   ) {
-    const question = new Question({
-      ...props,
-      slug: props.slug ?? Slug.createFromText(props.title),
-      createdAt: new Date()
-    }, id)
+    const question = new Question(
+      {
+        ...props,
+        slug: props.slug ?? Slug.createFromText(props.title),
+        createdAt: new Date(),
+      },
+      id,
+    )
 
     return question
   }
