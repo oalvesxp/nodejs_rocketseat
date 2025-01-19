@@ -16,7 +16,7 @@ export class EditQuestionUseCase {
     authorId,
     questionId,
     title,
-    content
+    content,
   }: EditQuestionUseCaseRequest): Promise<EditQuestionUseCaseResponse> {
     const question = await this.questionsRepository.findById(questionId)
 
