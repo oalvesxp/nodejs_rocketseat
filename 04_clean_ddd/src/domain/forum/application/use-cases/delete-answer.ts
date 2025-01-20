@@ -5,10 +5,10 @@ interface DeleteAnswerUseCaseRequest {
   answerId: string
 }
 
-interface DeleteAnswerUseCaseResponse { }
+interface DeleteAnswerUseCaseResponse {}
 
 export class DeleteAnswerUseCase {
-  constructor(private questionsRepository: AnswersRepository) { }
+  constructor(private questionsRepository: AnswersRepository) {}
 
   async execute({
     authorId,
