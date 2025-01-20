@@ -1,18 +1,18 @@
 import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository'
-import { EditAnswerUseCase } from './edit-answer'
+import { DeleteAnswerUseCase } from './delete-answer'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { makeAnswer } from 'test/factories/make-answer'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
-let sut: EditAnswerUseCase
+let sut: DeleteAnswerUseCase
 
-describe('Edit answer', () => {
+describe('Delete question', () => {
   beforeEach(() => {
     inMemoryAnswersRepository = new InMemoryAnswersRepository()
-    sut = new EditAnswerUseCase(inMemoryAnswersRepository)
+    sut = new DeleteAnswerUseCase(inMemoryAnswersRepository)
   })
 
-  it('Should be able to edit an answer', async () => {
+  it('Should be able to delete a question', async () => {
     const newAnswer = makeAnswer(
       { authorId: new UniqueEntityID('author01') },
       new UniqueEntityID('answer01'),
@@ -22,19 +22,16 @@ describe('Edit answer', () => {
 
     await sut.execute({
       authorId: 'author01',
-      answerId: newAnswer.id.toValue(),
-      content: 'Content already edited',
+      answerId: 'answer01',
     })
 
-    expect(inMemoryAnswersRepository.items[0]).toMatchObject({
-      content: 'Content already edited',
-    })
+    expect(inMemoryAnswersRepository.items).toHaveLength(0)
   })
 
-  it('Should not be able to edit an answer from another user', async () => {
+  it('Should not be able to delete a question from another user', async () => {
     const newAnswer = makeAnswer(
       { authorId: new UniqueEntityID('author01') },
-      new UniqueEntityID('Answer01'),
+      new UniqueEntityID('answer01'),
     )
 
     await inMemoryAnswersRepository.create(newAnswer)
@@ -42,9 +39,10 @@ describe('Edit answer', () => {
     await expect(() => {
       return sut.execute({
         authorId: 'author02',
-        answerId: newAnswer.id.toValue(),
-        content: 'Content already edited',
+        answerId: 'answer01',
       })
     }).rejects.toBeInstanceOf(Error)
+
+    expect(inMemoryAnswersRepository.items).toHaveLength(1)
   })
 })
