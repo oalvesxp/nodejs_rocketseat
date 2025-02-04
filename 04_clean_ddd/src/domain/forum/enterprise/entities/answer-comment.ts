@@ -7,7 +7,7 @@ export interface AnswerCommentProps extends CommentProps {
 }
 
 export class AnswerComment extends Comment<AnswerCommentProps> {
-  get answerid() {
+  get answerId() {
     return this.props.answerId
   }
 
