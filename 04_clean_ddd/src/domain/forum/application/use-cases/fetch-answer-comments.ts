@@ -2,14 +2,18 @@ import { AnswerComment } from '../../enterprise/entities/answer-comment'
 import { AnswerCommentsRepository } from '../repositories/answer-comments-repository'
 import { AnswersRepository } from '../repositories/answers-repository'
 
+import { Either, left, right } from '@/core/either'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
+
 interface FetchAnswerCommentsUseCaseRequest {
   answerId: string
   page: number
 }
 
-interface FetchAnswerCommentsUseCaseResponse {
-  comments: AnswerComment[]
-}
+type FetchAnswerCommentsUseCaseResponse = Either<
+  ResourceNotFoundError,
+  { comments: AnswerComment[] }
+>
 
 export class FetchAnswerCommentsUseCase {
   constructor(
@@ -24,7 +28,7 @@ export class FetchAnswerCommentsUseCase {
     const answer = await this.answersRepository.findById(answerId)
 
     if (!answer) {
-      throw new Error('Resource not found')
+      return left(new ResourceNotFoundError())
     }
 
     const comments = await this.answerCommentsRespository.findManyByAnswerId(
@@ -32,8 +36,8 @@ export class FetchAnswerCommentsUseCase {
       { page },
     )
 
-    return {
+    return right({
       comments,
-    }
+    })
   }
 }
