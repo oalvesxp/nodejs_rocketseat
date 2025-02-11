@@ -1,5 +1,6 @@
 import { Question } from '../../enterprise/entities/question'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
+import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 import { QuestionsRepository } from '../repositories/questions-repository'
 
 import { Either, right } from '@/core/either'
@@ -36,7 +37,7 @@ export class CreateQuestionUseCase {
       })
     })
 
-    question.attachments = questionAttachments
+    question.attachments = new QuestionAttachmentList(questionAttachments)
 
     await this.questionsRepository.create(question)
 
