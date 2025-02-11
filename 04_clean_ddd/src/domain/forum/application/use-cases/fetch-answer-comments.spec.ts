@@ -1,6 +1,7 @@
 import { InMemoryAnswerCommentsRepository } from 'test/repositories/in-memory-answer-comments-repository'
 import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository'
 import { FetchAnswerCommentsUseCase } from './fetch-answer-comments'
+
 import { makeAnswer } from 'test/factories/make-answer'
 import { makeAnswerComment } from 'test/factories/make-answer-comment'
 
@@ -26,12 +27,12 @@ describe('Fetch answer comments', () => {
       )
     }
 
-    const { comments } = await sut.execute({
+    const result = await sut.execute({
       answerId: answer.id.toString(),
       page: 1,
     })
 
-    expect(comments).toHaveLength(3)
+    expect(result.value?.comments).toHaveLength(3)
   })
 
   it('Should be able to fetch paginated answer comments', async () => {
@@ -44,11 +45,11 @@ describe('Fetch answer comments', () => {
       )
     }
 
-    const { comments } = await sut.execute({
+    const result = await sut.execute({
       answerId: answer.id.toString(),
       page: 2,
     })
 
-    expect(comments).toHaveLength(2)
+    expect(result.value?.comments).toHaveLength(2)
   })
 })
