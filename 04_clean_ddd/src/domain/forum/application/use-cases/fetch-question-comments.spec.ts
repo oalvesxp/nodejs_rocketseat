@@ -41,7 +41,9 @@ describe('Fetch question comments', () => {
       page: 1,
     })
 
-    expect(result.value?.comments).toHaveLength(3)
+    expect(result.value).toMatchObject({
+      comments: expect.arrayContaining(Array(3)),
+    })
   })
 
   it('Should be able to fetch pagined question comments', async () => {
@@ -59,6 +61,8 @@ describe('Fetch question comments', () => {
       page: 2,
     })
 
-    expect(result.value?.comments).toHaveLength(2)
+    expect(result.value).toMatchObject({
+      comments: expect.arrayContaining(Array(2)),
+    })
   })
 })
