@@ -19,7 +19,7 @@ export class FetchQuestionCommentsUseCase {
   constructor(
     private questionsRepository: QuestionsRepository,
     private questionCommentsRepository: QuestionCommentsRepository,
-  ) { }
+  ) {}
 
   async execute({
     questionId,

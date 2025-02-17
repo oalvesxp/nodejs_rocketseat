@@ -21,7 +21,7 @@ export class CommentOnAnswerUseCase {
   constructor(
     private answersRepository: AnswersRepository,
     private answerCommentsRepository: AnswerCommentsRepository,
-  ) { }
+  ) {}
 
   async execute({
     authorId,

@@ -19,7 +19,7 @@ export class FetchAnswerCommentsUseCase {
   constructor(
     private answersRepository: AnswersRepository,
     private answerCommentsRespository: AnswerCommentsRepository,
-  ) { }
+  ) {}
 
   async execute({
     answerId,
