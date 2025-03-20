@@ -31,7 +31,5 @@ export class OnAnswerCreated implements EventHandler {
         content: answer.except,
       })
     }
-
-    console.log(answer)
   }
 }
